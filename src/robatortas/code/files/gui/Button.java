@@ -4,24 +4,26 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import robatortas.code.files.styles.ButtonStyles;
+
 public class Button {
 	
 	// Panel (For displaying buttons n' stuff)
-	public JPanel panel;
+	private JPanel panel;
 	
 	// Buttons
 	public JButton[] buttons = new JButton[2];
-	public JButton start, stop;
+	private JButton start, stop;
 	
 	public Button(JPanel panel) {
 		this.panel = panel;
-		
-		style();
 		
 		newButtons();
 		assignButtonIndex();
 		setButtonProperties();
 		addButtons();
+		
+		setStyle();
 	}
 	
 	// Allocated space in memory for the buttons
@@ -48,11 +50,13 @@ public class Button {
 	}
 	
 	// Sets the button style
-	public void style() {
+	public void setStyle() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		new ButtonStyles(this);
 	}
 }
