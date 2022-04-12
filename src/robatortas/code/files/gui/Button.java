@@ -13,7 +13,7 @@ public class Button {
 	
 	// Buttons
 	public JButton[] buttons = new JButton[2];
-	private JButton start, stop;
+	public JButton start, stop;
 	
 	public Button(JPanel panel) {
 		this.panel = panel;
