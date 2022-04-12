@@ -17,7 +17,7 @@ public class Display {
 		frame.setTitle(title);
 		frame.setSize(size);
 		frame.add(gui.panel);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		

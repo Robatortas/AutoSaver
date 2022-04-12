@@ -1,3 +1,11 @@
+/*
+ * This program is made by Robatortas.
+ * 
+ * It's a free and open source program.
+ * 
+ * Built to auto-save progress from a project.
+ */
+
 package robatortas.code.files;
 
 public class MainApp {
