@@ -4,6 +4,8 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import robatortas.code.files.gui.GUI;
+
 public class Display {
 
 	public Display(int width, int height, String title, Program program) {

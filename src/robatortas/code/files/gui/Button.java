@@ -1,4 +1,4 @@
-package robatortas.code.files;
+package robatortas.code.files.gui;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -15,6 +15,8 @@ public class Button {
 	
 	public Button(JPanel panel) {
 		this.panel = panel;
+		
+		style();
 		
 		newButtons();
 		assignButtonIndex();
@@ -36,12 +38,6 @@ public class Button {
 	
 	// Sets the properties of the buttons
 	public void setButtonProperties() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 		buttons[0].setBounds(10, 10, 100, 50);
 		buttons[0].setFocusable(false);
 	}
@@ -49,5 +45,14 @@ public class Button {
 	// Adds the buttons to the panel
 	public void addButtons() {
 		panel.add(buttons[0]);
+	}
+	
+	// Sets the button style
+	public void style() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
