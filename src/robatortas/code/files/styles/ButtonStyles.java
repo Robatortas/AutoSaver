@@ -11,10 +11,7 @@ import robatortas.code.files.gui.Button;
 
 // Going to try and make it as CSS'ish as possible
 public class ButtonStyles {
-	
-	private Button button;
-	
-	private JButton[] buttons;
+	private JButton button;
 	
 	private Color bgColor;
 	private Color hoverColor;
@@ -22,10 +19,11 @@ public class ButtonStyles {
 	
 	private Program program;
 	
-	public ButtonStyles(Button button, Program program) {
+	public ButtonStyles(JButton button, Program program) {
 		this.button = button;
-		this.buttons = button.buttons;
 		this.program = program;
+		
+		setStyles();
 	}
 	
 	public void setSettings(Color bgColor, Color hoverColor, Color clickColor) {
@@ -43,16 +41,16 @@ public class ButtonStyles {
 	
 	// Contains general styles for all buttons
 	public void general() {
-		allButtons().setFocusable(false);
-		allButtons().setBorder(null);
+		button.setFocusable(false);
+		button.setBorder(null);
 	}
 	
 	public void bg() {
-		button.start.setBackground(bgColor);
+		button.setBackground(bgColor);
 	}
 	
 	public void onHover() {
-		allButtons().addMouseListener(new MouseListener() {
+		button.addMouseListener(new MouseListener() {
 			// FILLERS
 			public void mouseClicked(MouseEvent e) {
 			}
@@ -63,24 +61,25 @@ public class ButtonStyles {
 			
 			// USED
 			public void mouseEntered(MouseEvent e) {
-				allButtons().setBackground(hoverColor);
+				button.setBackground(hoverColor);
+				System.out.println("IN!");
 			}
 			public void mouseExited(MouseEvent e) {
-				allButtons().setBackground(bgColor);
+				button.setBackground(bgColor);
 			}
 		});
 	}
 	
 	public void onClick() {
-		allButtons().addMouseListener(new MouseListener() {
+		button.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
 				
 			}
 			public void mousePressed(MouseEvent e) {
-				allButtons().setBackground(clickColor);
+				button.setBackground(clickColor);
 			}
 			public void mouseReleased(MouseEvent e) {
-				allButtons().setBackground(hoverColor);
+				button.setBackground(hoverColor);
 			}
 			
 			public void mouseEntered(MouseEvent e) {
@@ -88,14 +87,5 @@ public class ButtonStyles {
 			public void mouseExited(MouseEvent e) {
 			}
 		});
-	}
-
-	@SuppressWarnings("unused")
-	public JButton allButtons() {
-		for(int i = 0; i < buttons.length; i++) {
-			JButton button = buttons[i];
-			return button;
-		}
-		return null;
 	}
 }

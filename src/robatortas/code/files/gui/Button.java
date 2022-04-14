@@ -14,50 +14,37 @@ public class Button {
 	// Panel (For displaying buttons n' stuff)
 	private JPanel panel;
 	
-	// Buttons
-	public JButton[] buttons = new JButton[2];
-	public JButton start, stop;
+	public JButton button;
 	
-	private Color bgColor = new Color(0xFFC667);
-	private Color hoverColor = new Color(0xD7A757);
-	private Color clickColor = new Color(0xC69949);
+	public ButtonStyles buttonStyles;
+	public Color bgColor = new Color(0xFFC667);
+	public Color hoverColor = new Color(0xD7A757);
+	public Color clickColor = new Color(0xC69949);
 	
 	private Program program;
 	
 	public Button(JPanel panel, Program program) {
 		this.panel = panel;
 		this.program = program;
-		
-		newButtons();
-		assignButtonIndex();
-		setButtonProperties();
-		addButtons();
-		
-		setStyle();
-		
 	}
 	
 	// Allocated space in memory for the buttons
-	public void newButtons() {
-		start = new JButton("Start");
-		stop = new JButton("Stop");
+	public JButton newButton(String text) {
+		return button = new JButton(text);
 	}
 	
-	// Assigns an index to each button
-	public void assignButtonIndex() {
-		buttons[0] = start;
-		buttons[1] = stop;
+	// Sets the default properties of the buttons
+	public void setDefaultProperties() {
+		
 	}
 	
-	// Sets the properties of the buttons
-	public void setButtonProperties() {
-		buttons[0].setBounds(10, 10, 100, 50);
-		buttons[0].setFocusable(false);
+	public void setSettings(Color bgColor, Color hoverColor, Color clickColor) {
+		buttonStyles.setSettings(bgColor, hoverColor, clickColor);
 	}
 	
 	// Adds the buttons to the panel
-	public void addButtons() {
-		panel.add(buttons[0]);
+	public void addButton() {
+		panel.add(button);
 	}
 	
 	// Sets the button style
@@ -68,6 +55,6 @@ public class Button {
 			e.printStackTrace();
 		}
 		
-		new ButtonStyles(this, program);
+		buttonStyles = new ButtonStyles(button, program);
 	}
 }

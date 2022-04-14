@@ -12,6 +12,8 @@ public class GUI {
 	
 	private Program program;
 	
+	private Button start;
+	
 	public GUI(Program program) {
 		this.program = program;
 		
@@ -27,7 +29,13 @@ public class GUI {
 	}
 	
 	public void setButton() {
-		new Button(panel, program);
+		start = new Button(panel, program);
+		start.newButton("Start");
+		start.addButton();
+		start.setStyle();
+		start.setDefaultProperties();
+		start.setSettings(start.bgColor, start.hoverColor, start.clickColor);
+		start.button.setBounds(0,0,100,100);
 	}
 	
 	private Color bgColor = new Color(0x7E7E7E);
