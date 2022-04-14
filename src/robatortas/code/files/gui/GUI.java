@@ -27,7 +27,7 @@ public class GUI {
 	}
 	
 	public void setButton() {
-		new Button(panel);
+		new Button(panel, program);
 	}
 	
 	private Color bgColor = new Color(0x7E7E7E);

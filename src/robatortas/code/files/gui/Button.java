@@ -1,9 +1,12 @@
 package robatortas.code.files.gui;
 
+import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import robatortas.code.files.Program;
 import robatortas.code.files.styles.ButtonStyles;
 
 public class Button {
@@ -15,8 +18,15 @@ public class Button {
 	public JButton[] buttons = new JButton[2];
 	public JButton start, stop;
 	
-	public Button(JPanel panel) {
+	private Color bgColor = new Color(0xFFC667);
+	private Color hoverColor = new Color(0xD7A757);
+	private Color clickColor = new Color(0xC69949);
+	
+	private Program program;
+	
+	public Button(JPanel panel, Program program) {
 		this.panel = panel;
+		this.program = program;
 		
 		newButtons();
 		assignButtonIndex();
@@ -24,6 +34,7 @@ public class Button {
 		addButtons();
 		
 		setStyle();
+		
 	}
 	
 	// Allocated space in memory for the buttons
@@ -57,6 +68,6 @@ public class Button {
 			e.printStackTrace();
 		}
 		
-		new ButtonStyles(this);
+		new ButtonStyles(this, program);
 	}
 }
